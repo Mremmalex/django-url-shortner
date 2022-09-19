@@ -1,0 +1,21 @@
+{%extends "main/base.html" %} {% block content%}
+<div class="link">
+	<div class="content-box">
+		<form action="#" method="post" class="form">
+			{% csrf_token%}
+			<input type="text" name="url" />
+			<button type="submit" name="short">Short Link</button>
+		</form>
+		{% if not link %}
+		<p>{{error}}</p>
+		{%else%}
+		<p>
+			here is your short link
+			<a href="http://localhost:8080/r/{{link}}"
+				>http://localhost:8080/r/{{link}}</a
+			>
+		</p>
+		{% endif %}
+	</div>
+</div>
+{% endblock %}
